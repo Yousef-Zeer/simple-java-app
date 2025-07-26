@@ -1,25 +1,12 @@
-node{
-    git branch: 'main', url: 'https://github.com/Yousef-Zeer/simple-java-app.git'
+pipeline{
+  agent any
+  stages{
     stage('build'){
-            try {
-            sh'echo "build in progress"'
-
-            }
-
-            catch(Exception e)
-            {
-                 sh'echo "exception in progress"'
-                throw e 
-            }
-    }
-
-    stage('test')
-    {
-        if(env.BRANCH_NAME == "feat"){
-           sh'echo "test stage"' 
+      steps{
+        script{
+          echo "build in progress"
         }
-        else {
-            sh'echo "skip test stage "'
-        }
+      }
     }
+  }
 }
