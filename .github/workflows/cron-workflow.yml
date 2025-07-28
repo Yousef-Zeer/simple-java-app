@@ -1,4 +1,4 @@
-name:: cron workflow
+name: cron workflow
 
 on:
   schedule: 
