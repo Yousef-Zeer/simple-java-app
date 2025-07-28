@@ -1,4 +1,4 @@
-name: workflow trigger
+name: workflow trigger test
 
 on:
   push:
