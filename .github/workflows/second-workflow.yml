@@ -2,11 +2,12 @@ name: second workflow
 
 on:
   push:
-    branches: "main"
+    branches: 
+      - main
 
 jobs: 
-  second workflow job: 
-    name: second job
+  second-workflow-job:   # ✅ Job ID must not contain spaces
+    name: second job      # Display name, spaces are okay here
     runs-on: ubuntu-latest
     steps:
       - name: before checkout 
@@ -18,4 +19,4 @@ jobs:
 
       - name: run mvn (after checkout)
         run: mvn clean package 
-        shell: bash 
+        shell: bash  
