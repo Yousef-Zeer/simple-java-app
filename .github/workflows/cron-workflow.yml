@@ -1,12 +1,11 @@
 name: cron workflow
 
 on:
-  workflow_dispatch:
-  schedule: 
-    - cron : "*/5 * * * *"
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   cron-workflow:
     runs-on: ubuntu-latest
-    steps: 
-      - run: echo "cron workflow"
+    steps:
+      - run: echo "cron workflow running"
