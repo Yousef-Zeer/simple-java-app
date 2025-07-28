@@ -5,6 +5,12 @@ on:
     branches: 
       - main
 
+  pull_request:
+    branches:
+      - "feature" 
+    types [opened, closed]
+
+
 jobs: 
   second-workflow-job:   # ✅ Job ID must not contain spaces
     name: second job      # Display name, spaces are okay here
