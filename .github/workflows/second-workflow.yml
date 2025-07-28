@@ -4,17 +4,18 @@ on:
   push:
     branches: "main"
 
-jobs: second workflow job: 
-  name: second job
-  runs-on: ubuntu-latest
-  steps:
-    - name: before checkout 
-      run: ls 
-      shell: bash 
+jobs: 
+  second workflow job: 
+    name: second job
+    runs-on: ubuntu-latest
+    steps:
+      - name: before checkout 
+        run: ls 
+        shell: bash 
 
-    - name: checkout step 
-      uses: actions/checkout@v4
+      - name: checkout step 
+        uses: actions/checkout@v4
 
-    - name: run mvn (after checkout)
-      run: mvn clean package 
-      shell: bash 
+      - name: run mvn (after checkout)
+        run: mvn clean package 
+        shell: bash 
