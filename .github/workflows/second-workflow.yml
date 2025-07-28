@@ -28,6 +28,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: Yousef-Zeer/java-app:$GITHUB_REF
+          tags: Yousef-Zeer/java-app:${{ github.ref_name }}
 
 
