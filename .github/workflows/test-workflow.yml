@@ -1,0 +1,11 @@
+name: Simple Dispatch Test
+
+on:
+  repository_dispatch:
+    types: [test]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Dispatched successfully"
