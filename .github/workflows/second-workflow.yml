@@ -1,32 +1,33 @@
-name: second workflow
+name: workflow trigger
 
 on:
-
-  repository_dispatch:
-    types: [test]
-
   push:
-    branches: 
-      - main
-
-  pull_request:
-    branches:
-      - "feature" 
-    types: [opened, closed]
-
+    - branches:
+      - "main"
 
 jobs: 
-  second-workflow-job:   # ✅ Job ID must not contain spaces
-    name: second job      # Display name, spaces are okay here
+  my-workflow-job:
+    name: workflow
     runs-on: ubuntu-latest
+
     steps:
-      - name: before checkout 
-        run: ls 
-        shell: bash 
+      - name : checkout code 
+        run: actions/checkout@v4
+        shell: bash
 
-      - name: checkout step 
-        uses: actions/checkout@v4
+      - name: setup docker build
+        uses: docker/setup-buildx-action@v3
 
-      - name: run mvn (after checkout)
-        run: mvn clean package 
-        shell: bash  
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: build the docker 
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+        tags: Yousef-Zeer/java-app:$GITHUB_REF
+
+
