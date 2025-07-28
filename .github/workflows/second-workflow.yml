@@ -8,7 +8,7 @@ on:
   pull_request:
     branches:
       - "feature" 
-    types [opened, closed]
+    types: [opened, closed]
 
 
 jobs: 
